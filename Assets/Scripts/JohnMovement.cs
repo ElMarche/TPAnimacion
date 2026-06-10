@@ -12,6 +12,11 @@ public class JohnMovement : MonoBehaviour
     [SerializeField] private float GroundCheckDistance = 0.2f;
     [SerializeField] private float DeathZoneYDistance = -2.0f;
 
+    [Header("Knife")]
+    [SerializeField] private GameObject KnifePrefab;
+    [SerializeField] private float knifeThrowDuration = 0.8f;
+    [SerializeField] private float knifeReleaseDelay = 0.25f;
+
     [Header("Death Movement")]
     [SerializeField] private float deathPushDistance = 0.25f;
     [SerializeField] private float deathPushDuration = 0.35f;
@@ -29,6 +34,7 @@ public class JohnMovement : MonoBehaviour
     private Animator Animator;
     private float LastShoot;
     private float LastJump;
+    private bool isThrowingKnife;
     private int Health = 5;
     private int maxHealth = 5;
 
@@ -46,7 +52,7 @@ public class JohnMovement : MonoBehaviour
     {
         Estados currentState = GameManager.Instancia.GetEstados();
 
-        if (currentState == Estados.Playing && !isDead)
+        if (currentState == Estados.Playing && !isDead && !isThrowingKnife)
         {
             Animator.SetFloat("velocityY", Rigidbody2D.velocity.y);
 
@@ -110,6 +116,32 @@ public class JohnMovement : MonoBehaviour
         bullet.GetComponent<BulletScript>().SetDirection(direction);
     }
 
+    private IEnumerator ThrowKnife()
+    {
+        isThrowingKnife = true;
+        StopMovement();
+        Animator.SetTrigger("FireKnife");
+
+        yield return new WaitForSeconds(knifeReleaseDelay);
+
+        if (!isDead && GameManager.Instancia.GetEstados() == Estados.Playing)
+        {
+            Vector3 direction = transform.localScale.x >= 0.0f ? Vector3.right : Vector3.left;
+            GameObject knife = Instantiate(
+                KnifePrefab,
+                transform.position + direction * 0.15f,
+                Quaternion.identity
+            );
+
+            knife.transform.localScale = new Vector3(direction.x, 1.0f, 1.0f);
+            knife.GetComponent<BulletScript>().SetDirection(direction);
+        }
+
+        float remainingDuration = Mathf.Max(0.0f, knifeThrowDuration - knifeReleaseDelay);
+        yield return new WaitForSeconds(remainingDuration);
+        isThrowingKnife = false;
+    }
+
     public void Hit()
     {
         if (isDead) return;
@@ -171,7 +203,7 @@ public class JohnMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isDead || GameManager.Instancia.GetEstados() != Estados.Playing)
+        if (isDead || isThrowingKnife || GameManager.Instancia.GetEstados() != Estados.Playing)
         {
             Rigidbody2D.velocity = Vector2.zero;
             return;
@@ -192,6 +224,11 @@ public class JohnMovement : MonoBehaviour
         {
             Shoot();
             LastShoot = Time.time;
+        }
+
+        if (Input.GetKeyDown(KeyCode.E) && Grounded && KnifePrefab != null)
+        {
+            StartCoroutine(ThrowKnife());
         }
     }
 

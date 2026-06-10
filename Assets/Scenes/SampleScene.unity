@@ -723,6 +723,9 @@ MonoBehaviour:
     m_Bits: 64
   GroundCheckDistance: 0.1
   DeathZoneYDistance: -1
+  KnifePrefab: {fileID: 6461446474167364239, guid: 6f9cd83b0c60e164bb8e7b5e0c9bdf0e, type: 3}
+  knifeThrowDuration: 0.2
+  knifeReleaseDelay: 0.4
   deathPushDistance: 0.2
   deathPushDuration: 0.5
   deathStartPush: 0.2

@@ -8,11 +8,20 @@ public class BulletScript : MonoBehaviour
     public float Speed; // public can be worked on from Unity editor.
     private Vector2 Direction;
     public AudioClip Sound;
+    [SerializeField] private bool damageJohn = true;
+    [SerializeField] private bool damageGrunts = true;
+    [SerializeField] private float lifetime = 3.0f;
     // Start is called before the first frame update
     void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
-        Camera.main.GetComponent<AudioSource>().PlayOneShot(Sound);
+        if (Sound != null && Camera.main != null)
+        {
+            AudioSource audioSource = Camera.main.GetComponent<AudioSource>();
+            if (audioSource != null) audioSource.PlayOneShot(Sound);
+        }
+
+        Destroy(gameObject, lifetime);
     }
 
     // Update is called once per frame
@@ -36,8 +45,8 @@ public class BulletScript : MonoBehaviour
         JohnMovement John = collision.GetComponent<JohnMovement>();
         GruntScript Grunt = collision.GetComponent<GruntScript>();
 
-        if (John != null) John.Hit();
-        if (Grunt != null) Grunt.Hit();
+        if (damageJohn && John != null) John.Hit();
+        if (damageGrunts && Grunt != null) Grunt.Hit();
 
         DestroyBullet();
     }

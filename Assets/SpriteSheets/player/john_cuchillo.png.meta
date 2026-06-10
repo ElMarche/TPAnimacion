@@ -147,7 +147,7 @@ TextureImporter:
       name: john_cuchillo_1
       rect:
         serializedVersion: 2
-        x: 135
+        x: 33
         y: 0
         width: 14
         height: 18
@@ -168,10 +168,10 @@ TextureImporter:
       name: john_cuchillo_2
       rect:
         serializedVersion: 2
-        x: 265
+        x: 56
         y: 0
-        width: 14
-        height: 18
+        width: 15
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,10 +189,10 @@ TextureImporter:
       name: john_cuchillo_3
       rect:
         serializedVersion: 2
-        x: 395
+        x: 75
         y: 0
-        width: 14
-        height: 18
+        width: 18
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,9 +210,9 @@ TextureImporter:
       name: john_cuchillo_4
       rect:
         serializedVersion: 2
-        x: 525
+        x: 104
         y: 0
-        width: 14
+        width: 16
         height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -231,9 +231,9 @@ TextureImporter:
       name: john_cuchillo_5
       rect:
         serializedVersion: 2
-        x: 655
+        x: 132
         y: 0
-        width: 14
+        width: 15
         height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -252,7 +252,7 @@ TextureImporter:
       name: john_cuchillo_6
       rect:
         serializedVersion: 2
-        x: 785
+        x: 161
         y: 0
         width: 14
         height: 18
@@ -273,9 +273,9 @@ TextureImporter:
       name: john_cuchillo_7
       rect:
         serializedVersion: 2
-        x: 915
+        x: 187
         y: 0
-        width: 14
+        width: 18
         height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -294,9 +294,9 @@ TextureImporter:
       name: john_cuchillo_8
       rect:
         serializedVersion: 2
-        x: 1045
+        x: 215
         y: 0
-        width: 14
+        width: 17
         height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -307,6 +307,69 @@ TextureImporter:
       bones: []
       spriteID: bd6bc64243322e84fba344b62a042068
       internalID: -1407699726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_cuchillo_9
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea0aecbe1b2dc0e4f935e3a9193df69e
+      internalID: -649996475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_cuchillo_10
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 0
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab25391072a77144fabff5ffa543bd8c
+      internalID: -760930500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: john_cuchillo_11
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 078c756246a26194c98723835ac38686
+      internalID: 153605085
       vertices: []
       indices: 
       edges: []
@@ -324,6 +387,8 @@ TextureImporter:
     nameFileIdTable:
       john_cuchillo_0: 1145636500
       john_cuchillo_1: -688910334
+      john_cuchillo_10: -760930500
+      john_cuchillo_11: 153605085
       john_cuchillo_2: -937806881
       john_cuchillo_3: -1718663644
       john_cuchillo_4: 1646980181
@@ -331,6 +396,7 @@ TextureImporter:
       john_cuchillo_6: 1506576411
       john_cuchillo_7: -436966783
       john_cuchillo_8: -1407699726
+      john_cuchillo_9: -649996475
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
