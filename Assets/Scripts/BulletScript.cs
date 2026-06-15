@@ -44,9 +44,14 @@ public class BulletScript : MonoBehaviour
     {
         JohnMovement John = collision.GetComponent<JohnMovement>();
         GruntScript Grunt = collision.GetComponent<GruntScript>();
+        Crate crate = collision.GetComponent<Crate>();
 
         if (damageJohn && John != null) John.Hit();
         if (damageGrunts && Grunt != null) Grunt.Hit();
+        if (crate != null) crate.Hit();
+        {
+            
+        }
 
         DestroyBullet();
     }
