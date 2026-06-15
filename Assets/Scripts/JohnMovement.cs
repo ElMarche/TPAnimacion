@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class JohnMovement : MonoBehaviour
@@ -16,6 +17,11 @@ public class JohnMovement : MonoBehaviour
     [SerializeField] private GameObject KnifePrefab;
     [SerializeField] private float knifeThrowDuration = 0.8f;
     [SerializeField] private float knifeReleaseDelay = 0.25f;
+
+    [Header("Sounds")]
+    [SerializeField] private AudioClip jumping;
+    [SerializeField] private AudioClip landing;
+    [SerializeField] private AudioClip hurting;
 
     [Header("Death Movement")]
     [SerializeField] private float deathPushDistance = 0.25f;
@@ -94,6 +100,7 @@ public class JohnMovement : MonoBehaviour
     {
         Rigidbody2D.AddForce(Vector2.up * JumpForce);
         Animator.SetTrigger("Jump");
+        PlaySound(jumping);
     }
 
     private void CheckGround()
@@ -149,6 +156,7 @@ public class JohnMovement : MonoBehaviour
         Health--;
         healthBar.SetHealth(Health);
         Animator.SetTrigger("Hit");
+        PlaySound(hurting);
 
         if (Health == 0)
         {
@@ -230,6 +238,20 @@ public class JohnMovement : MonoBehaviour
         {
             StartCoroutine(ThrowKnife());
         }
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        if (clip != null && Camera.main != null)
+        {
+            AudioSource audioSource = Camera.main.GetComponent<AudioSource>();
+            if (audioSource != null) audioSource.PlayOneShot(clip);
+        }
+    }
+
+    public void LandingSound()
+    {
+        PlaySound(landing);
     }
 
     private void OnDrawGizmos()

@@ -146,3 +146,4 @@ MonoBehaviour:
   Health: 2
   hitEffectPrefab: {fileID: 6193400831154104001, guid: b8c31716d25548bf8f5ff6685ed0f558, type: 3}
   crateExplosionPrefab: {fileID: 1811002538252983211, guid: 45bd0b56ea10b5e4f81b1675676672c7, type: 3}
+  sound: {fileID: 8300000, guid: 26a3c40b75c4dbd4da0f497f20474d1c, type: 3}
