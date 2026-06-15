@@ -22,6 +22,7 @@ public class JohnMovement : MonoBehaviour
     [SerializeField] private AudioClip jumping;
     [SerializeField] private AudioClip landing;
     [SerializeField] private AudioClip hurting;
+    [SerializeField] private AudioClip knifeSound;
 
     [Header("Death Movement")]
     [SerializeField] private float deathPushDistance = 0.25f;
@@ -252,6 +253,11 @@ public class JohnMovement : MonoBehaviour
     public void LandingSound()
     {
         PlaySound(landing);
+    }
+
+    public void ThrowingKnifeSound()
+    {
+        PlaySound(knifeSound);
     }
 
     private void OnDrawGizmos()

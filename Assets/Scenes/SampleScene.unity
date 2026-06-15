@@ -1003,6 +1003,7 @@ MonoBehaviour:
   jumping: {fileID: 8300000, guid: 7d4714bc94ff88f44ac4fc1690daf26c, type: 3}
   landing: {fileID: 8300000, guid: 73f3c22b0bf23254f84c38ed8b10b817, type: 3}
   hurting: {fileID: 8300000, guid: ee624bc69d7eb1e42bda73eacfc85d6a, type: 3}
+  knifeSound: {fileID: 8300000, guid: b2441777aa82320498d0a10f352ad9a0, type: 3}
   deathPushDistance: 0.2
   deathPushDuration: 0.5
   deathStartPush: 0.2
